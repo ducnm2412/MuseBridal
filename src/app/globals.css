@@ -1,26 +1,434 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #f8f4ee;
+  --beige: #e8dccb;
+  --blush: #efd6cf;
+  --brown: #8c5f45;
+  --ink: #2b211c;
+  --ink-soft: #6b5a50;
+  --line: rgba(43, 33, 28, 0.14);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-beige: var(--beige);
+  --color-blush: var(--blush);
+  --color-brown: var(--brown);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-be-vietnam);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tiêu đề serif: mỏng, rộng, giữ dấu tiếng Việt thoáng */
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.display-italic {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.prose-lead {
+  max-width: 34rem;
+  line-height: 1.75;
+}
+
+/* Nút */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.btn-primary {
+  background: var(--brown);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: #744d37;
+}
+.btn-outline {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn-light {
+  border: 1px solid rgba(248, 244, 238, 0.7);
+  color: var(--cream);
+}
+.btn-light:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* Dải cuộn ngang trên điện thoại */
+.snap-row {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-inline: 1rem;
+  scroll-padding-inline: 1rem;
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+.snap-row > * {
+  scroll-snap-align: start;
+  flex: 0 0 78%;
+}
+@media (min-width: 768px) {
+  .snap-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    overflow: visible;
+    padding-inline: 0;
+  }
+  .snap-row > * {
+    flex: none;
+  }
+}
+
+/* Trường nhập liệu */
+.field {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  color: var(--ink);
+  border-radius: 0;
+}
+.field::placeholder {
+  color: var(--ink-soft);
+}
+.field:focus {
+  outline: none;
+  border-bottom-color: var(--brown);
+  border-bottom-width: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}
+
+/* Một chuyển động duy nhất khi mở trang chủ */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-in {
+  animation: hero-in 0.9s ease-out both;
+}
+.hero-in-late {
+  animation: hero-in 0.9s ease-out 0.35s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-in,
+  .hero-in-late {
+    animation: none;
+  }
+}
+
+/* Nền lụa kem cố định, phủ lớp kem mờ để chữ dễ đọc */
+body {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(rgba(248, 244, 238, 0.55), rgba(248, 244, 238, 0.55)),
+    url("/brand/bg-silk.jpg");
+  background-size: cover, cover;
+  background-position: center, center top;
+  background-attachment: fixed, fixed;
+}
+@media (max-width: 767px) {
+  /* iOS không hỗ trợ fixed tốt, để cuộn theo trang */
+  body {
+    background-attachment: scroll, scroll;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Hero: ảnh đang hiện phóng rất chậm */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+.hero-zoom {
+  animation: hero-zoom 7s ease-out both;
+  will-change: transform;
+}
+
+/* Logo màn hình tải nhịp nhẹ */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.preloader-logo {
+  animation: breathe 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-zoom,
+  .preloader-logo {
+    animation: none;
+  }
+}
+
+/* Dải ảnh khảm: điện thoại tự chạy ngang, desktop lưới 6 cột */
+.mosaic-viewport {
+  overflow: hidden;
+}
+.mosaic-track {
+  display: flex;
+  width: max-content;
+  animation: mosaic-run 48s linear infinite;
+}
+.mosaic-track:hover,
+.mosaic-track:active {
+  animation-play-state: paused;
+}
+@keyframes mosaic-run {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.mosaic {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 11rem);
+  grid-auto-columns: 62vw;
+  gap: 0.5rem;
+  padding-right: 0.5rem;
+}
+.mosaic-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--beige);
+}
+@media (min-width: 640px) {
+  .mosaic {
+    grid-auto-columns: 30vw;
+    grid-template-rows: repeat(2, 14rem);
+  }
+}
+@media (min-width: 1024px) {
+  .mosaic-viewport {
+    overflow: visible;
+  }
+  .mosaic-track {
+    display: block;
+    width: auto;
+    animation: none;
+  }
+  .mosaic {
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-columns: auto;
+    grid-template-rows: none;
+    grid-auto-rows: 15rem;
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mosaic-track {
+    animation: none;
+  }
+  .mosaic-viewport {
+    overflow-x: auto;
+  }
+}
+
+/* Hiện dần khi cuộn tới */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal-stagger].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal-stagger].is-visible > :nth-child(2) { transition-delay: 0.08s; }
+[data-reveal-stagger].is-visible > :nth-child(3) { transition-delay: 0.16s; }
+[data-reveal-stagger].is-visible > :nth-child(4) { transition-delay: 0.24s; }
+[data-reveal-stagger].is-visible > :nth-child(5) { transition-delay: 0.32s; }
+[data-reveal-stagger].is-visible > :nth-child(6) { transition-delay: 0.4s; }
+[data-reveal-stagger].is-visible > :nth-child(n + 7) { transition-delay: 0.48s; }
+
+/* Dải chữ chạy ngang */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Nút: nhấc nhẹ khi rê chuột */
+.btn {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-primary:hover {
+  box-shadow: 0 10px 24px rgba(140, 95, 69, 0.3);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Liên kết gạch chân chạy từ trái */
+.link-slide {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-slide:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal-stagger] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* Lightbox */
+@keyframes lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes lightbox-img {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.lightbox-in {
+  animation: lightbox-in 0.25s ease-out both;
+}
+.lightbox-img {
+  animation: lightbox-img 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-in,
+  .lightbox-img {
+    animation: none;
+  }
+}
+
+/* Parallax: khung cắt tràn, ảnh bên trong phóng 12% và dịch theo --py */
+[data-parallax] {
+  overflow: hidden;
+}
+[data-parallax] > img,
+[data-parallax] img {
+  transform: translate3d(0, var(--py, 0px), 0) scale(1.12);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] img {
+    transform: none;
+  }
 }
