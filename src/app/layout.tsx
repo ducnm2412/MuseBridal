@@ -7,7 +7,6 @@ import QuickContact from "@/components/QuickContact";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 import RevealObserver from "@/components/RevealObserver";
-import Parallax from "@/components/Parallax";
 import { site } from "@/lib/data";
 
 const cormorant = Cormorant_Garamond({
@@ -51,7 +50,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Preloader />
         <SmoothScroll />
         <RevealObserver />
-        <Parallax />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

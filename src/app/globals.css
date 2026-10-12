@@ -213,22 +213,8 @@ body {
     transform: none;
   }
 }
-@keyframes hero-float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-1.5deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-}
 .hero-thumb {
-  animation:
-    hero-thumb-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 2s both,
-    hero-float 6s ease-in-out 2.9s infinite;
-}
-.hero-thumb:hover {
-  animation-play-state: paused, paused;
+  animation: hero-thumb-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 2s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -403,40 +389,16 @@ html.lenis body {
 [data-reveal-stagger].is-visible > :nth-child(6) { transition-delay: 0.4s; }
 [data-reveal-stagger].is-visible > :nth-child(n + 7) { transition-delay: 0.48s; }
 
-/* Dải chữ chạy ngang */
-.marquee {
-  overflow: hidden;
-  white-space: nowrap;
-}
-.marquee-track {
-  display: inline-flex;
-  animation: marquee 40s linear infinite;
-}
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* Nút: nhấc nhẹ khi rê chuột */
+/* Nút: chỉ phản hồi khi nhấn */
 .btn {
   transition:
     background-color 0.25s ease,
     color 0.25s ease,
     border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-.btn:hover {
-  transform: translateY(-2px);
-}
-.btn-primary:hover {
-  box-shadow: 0 10px 24px rgba(140, 95, 69, 0.3);
+    transform 0.15s ease;
 }
 .btn:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
 /* Liên kết gạch chân chạy từ trái */
@@ -458,10 +420,7 @@ html.lenis body {
     transform: none;
     transition: none;
   }
-  .marquee-track {
-    animation: none;
-  }
-  .btn:hover {
+  .btn:active {
     transform: none;
   }
 }
@@ -488,17 +447,26 @@ html.lenis body {
   }
 }
 
-/* Parallax: khung cắt tràn, ảnh bên trong phóng 12% và dịch theo --py */
+/* Parallax: ảnh trôi chậm hơn trang khi khung đi qua màn hình (CSS scroll-driven, không JS) */
 [data-parallax] {
   overflow: hidden;
 }
-[data-parallax] > img,
-[data-parallax] img {
-  transform: translate3d(0, var(--py, 0px), 0) scale(1.12);
-  will-change: transform;
+@keyframes parallax-drift {
+  from {
+    transform: translate3d(0, -7%, 0) scale(1.14);
+  }
+  to {
+    transform: translate3d(0, 7%, 0) scale(1.14);
+  }
+}
+@supports (animation-timeline: view()) {
+  [data-parallax] img {
+    animation: parallax-drift linear both;
+    animation-timeline: view();
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   [data-parallax] img {
-    transform: none;
+    animation: none;
   }
 }

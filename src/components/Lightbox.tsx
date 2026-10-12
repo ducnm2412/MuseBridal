@@ -1,5 +1,7 @@
 "use client";
 
+import { CaretLeftIcon, CaretRightIcon, XIcon } from "@phosphor-icons/react";
+
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import type { Photo } from "@/lib/data";
@@ -91,9 +93,7 @@ export default function Lightbox({
             onClick={close}
             className="absolute top-4 right-4 h-11 w-11 rounded-full border border-cream/40 text-cream flex items-center justify-center hover:bg-cream hover:text-ink transition-colors"
           >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
+            <XIcon size={20} weight="light" aria-hidden="true" />
           </button>
 
           {photos.length > 1 && (
@@ -104,9 +104,7 @@ export default function Lightbox({
                 onClick={(e) => { e.stopPropagation(); prev(); }}
                 className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-cream/40 text-cream flex items-center justify-center hover:bg-cream hover:text-ink transition-colors"
               >
-                <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
-                  <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <CaretLeftIcon size={20} weight="light" aria-hidden="true" />
               </button>
               <button
                 type="button"
@@ -114,9 +112,7 @@ export default function Lightbox({
                 onClick={(e) => { e.stopPropagation(); next(); }}
                 className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-cream/40 text-cream flex items-center justify-center hover:bg-cream hover:text-ink transition-colors"
               >
-                <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
-                  <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <CaretRightIcon size={20} weight="light" aria-hidden="true" />
               </button>
             </>
           )}

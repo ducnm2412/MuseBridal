@@ -6,7 +6,6 @@ import HeroSlides from "@/components/HeroSlides";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import MomentsMosaic from "@/components/MomentsMosaic";
 import Testimonials from "@/components/Testimonials";
-import Marquee from "@/components/Marquee";
 import { albums, moments, packages, site, steps } from "@/lib/data";
 
 export default function Home() {
@@ -25,9 +24,6 @@ export default function Home() {
       <section className="pt-20 md:pt-24 pb-8 md:pb-6 overflow-hidden md:h-[100svh] md:min-h-[640px]">
         <div className="mx-auto max-w-6xl px-4 md:px-6 h-full grid gap-6 md:gap-10 md:grid-cols-[1fr_1fr] md:gap-12 items-center">
           <div className="order-2 md:order-1">
-            <p className="hero-step hidden md:block text-sm text-ink-soft" style={{ "--i": 0 } as React.CSSProperties}>
-              Studio ảnh cưới tại Sài Gòn
-            </p>
             {/* Tiêu đề hiện từng chữ, mỗi chữ trễ hơn chữ trước 60ms */}
             <h1 className="display text-[clamp(1.6rem,8.4vw,2.4rem)] leading-[1.08] sm:text-6xl md:text-[clamp(3.4rem,9.5vh,7rem)] mt-3 whitespace-nowrap sm:whitespace-normal">
               {"Ảnh cưới của hai bạn,".split(" ").map((w, i) => (
@@ -36,7 +32,7 @@ export default function Home() {
                 </span>
               ))}
               <br />
-              <span className="display-italic text-brown">
+              <span className="display-italic">
                 {"kể theo cách của Muse.".split(" ").map((w, i) => (
                   <span key={i} className="hero-word" style={{ "--i": i + 5 } as React.CSSProperties}>
                     {w}{" "}
@@ -49,8 +45,8 @@ export default function Home() {
                 Phim trường hoặc ngoại cảnh Sài Gòn, trọn gói từ váy đến album.
               </span>
               <span className="hidden md:inline">
-                Chụp phim trường hoặc ngoại cảnh, trọn gói váy cưới thiết kế,
-                veston, makeup và album in. Ekip ba người đi cùng cả buổi.
+                Chụp phim trường hoặc ngoại cảnh Sài Gòn. Trọn gói váy cưới,
+                veston, makeup và album in.
               </span>
             </p>
             <div className="hero-step mt-6 md:mt-[clamp(1rem,2.5vh,2rem)] flex flex-wrap gap-3" style={{ "--i": 12 } as React.CSSProperties}>
@@ -61,11 +57,6 @@ export default function Home() {
                 Xem album
               </Link>
             </div>
-            <ul style={{ "--i": 14 } as React.CSSProperties} className="hero-step hidden md:flex mt-8 md:mt-[clamp(1rem,3vh,2.5rem)] [@media(max-height:720px)]:md:hidden flex-wrap gap-x-8 gap-y-2 text-sm text-ink-soft">
-              <li>Phim trường riêng</li>
-              <li>Ngoại cảnh toàn Sài Gòn</li>
-              <li>Photographer, Makeup Artist, Stylist</li>
-            </ul>
           </div>
 
           <div className="relative hero-media w-full order-1 md:order-2 md:h-[calc(100svh-7.5rem)] md:min-h-[520px]">
@@ -81,11 +72,11 @@ export default function Home() {
 
       {/* Giới thiệu ngắn + dải ảnh khảm tràn lề */}
       <section className="pt-16 md:pt-24 pb-10">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 grid gap-6 md:grid-cols-[1fr_1fr] items-end mb-10 md:mb-14">
-          <h2 data-reveal className="display text-4xl md:text-6xl">
+        <div className="mx-auto max-w-6xl px-4 md:px-6 mb-10 md:mb-14">
+          <h2 className="display text-4xl md:text-6xl">
             Mỗi cặp đôi một concept.
           </h2>
-          <p className="max-w-md text-ink-soft leading-7 md:justify-self-end">
+          <p className="mt-3 max-w-md text-ink-soft leading-7">
             Phim trường riêng, ekip ba người đi cùng cả buổi, trọn gói từ váy
             đến album.
           </p>
@@ -99,7 +90,7 @@ export default function Home() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6 flex items-end justify-between gap-6 mb-8 md:mb-12">
           <div>
-            <h2 data-reveal className="display text-4xl md:text-6xl">
+            <h2 className="display text-4xl md:text-6xl">
               Album theo concept
             </h2>
             <p className="mt-3 max-w-md text-ink-soft leading-7">
@@ -128,13 +119,11 @@ export default function Home() {
         </div>
       </section>
 
-      <Marquee />
-
       {/* Hai gói chụp */}
       <section className="bg-beige/60 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="max-w-2xl">
-            <h2 data-reveal className="display text-4xl md:text-6xl">
+            <h2 className="display text-4xl md:text-6xl">
               Hai gói chụp mùa cưới
             </h2>
             <p className="mt-3 text-ink-soft leading-7">
@@ -161,16 +150,11 @@ export default function Home() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="max-w-2xl mb-10 md:mb-14">
-            <h2 data-reveal className="display text-4xl md:text-6xl">
+            <h2 className="display text-4xl md:text-6xl">
               Muse làm gì cho ngày chụp
             </h2>
-            <p className="mt-3 text-ink-soft leading-7">
-              Chạm vào từng mục để xem. Mọi thứ nằm trong một gói.
-            </p>
           </div>
-          <div data-reveal>
-            <ServicesShowcase />
-          </div>
+          <ServicesShowcase />
         </div>
       </section>
 
@@ -228,15 +212,10 @@ export default function Home() {
       {/* Lời kể từ các cặp đôi */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <h2
-            data-reveal
-            className="display text-4xl md:text-6xl mb-10 md:mb-14"
-          >
+          <h2 className="display text-4xl md:text-6xl mb-10 md:mb-14">
             Các cặp đôi kể lại
           </h2>
-          <div data-reveal>
-            <Testimonials />
-          </div>
+          <Testimonials />
         </div>
       </section>
 
@@ -244,7 +223,7 @@ export default function Home() {
       <section className="bg-blush/50 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6 grid gap-10 md:grid-cols-[1fr_1.4fr]">
           <div>
-            <h2 data-reveal className="display text-4xl md:text-6xl">
+            <h2 className="display text-4xl md:text-6xl">
               Từ tin nhắn đầu tiên đến album
             </h2>
             <p className="mt-3 text-ink-soft leading-7 max-w-sm">
@@ -252,7 +231,7 @@ export default function Home() {
               và vui.
             </p>
           </div>
-          <ol className="grid gap-6" data-reveal-stagger>
+          <ol className="grid gap-6">
             {steps.map((s, i) => (
               <li
                 key={s.title}
@@ -277,7 +256,7 @@ export default function Home() {
       <section className="bg-beige/60 py-16 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-6xl px-4 md:px-6 grid gap-12 md:grid-cols-[1fr_1.2fr] items-center">
           <div>
-            <h2 data-reveal className="display text-4xl md:text-6xl">
+            <h2 className="display text-4xl md:text-6xl">
               Mỗi tuần một bộ ảnh mới trên Instagram
             </h2>
             <p className="mt-4 max-w-md text-ink-soft leading-7">

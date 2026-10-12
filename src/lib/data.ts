@@ -297,7 +297,7 @@ export const testimonials = [
     names: "Thảo và Khôi",
     album: "Serene Love",
     quote:
-      "Tụi mình không biết tạo dáng, nhưng anh photographer chỉ từng chút một nên ảnh ra rất tự nhiên. Album in đẹp hơn cả mong đợi.",
+      "Tụi mình không biết tạo dáng, ekip chỉ từng chút một nên ảnh ra rất tự nhiên.",
     photo: p("serene-love-3", 1365, 2048, "Thảo và Khôi giữa vườn cây"),
   },
   {

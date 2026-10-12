@@ -46,7 +46,7 @@ export default function AlbumIndex() {
   return (
     <div className="mx-auto max-w-6xl px-4 md:px-6 py-12 md:py-20">
       <div className="grid gap-4 md:grid-cols-[1fr_1fr] items-end">
-        <h1 data-reveal className="display text-5xl md:text-7xl">Album</h1>
+        <h1 className="display text-5xl md:text-7xl">Album</h1>
         <p className="max-w-md text-ink-soft leading-7 md:justify-self-end">
           Ảnh thật từ các cặp đôi đã chụp tại Muse. Chạm vào một bộ để xem trọn album.
         </p>

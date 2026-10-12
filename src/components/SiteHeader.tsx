@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/data";
+import { useScrolledPast } from "@/lib/useScrolledPast";
 
 const nav = [
   { href: "/album", label: "Album" },
@@ -21,7 +22,7 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrolledPast(40);
 
   // Đóng menu khi đổi trang: theo dõi pathname trong lúc render thay vì effect
   const [seenPath, setSeenPath] = useState(pathname);
@@ -29,13 +30,6 @@ export default function SiteHeader() {
     setSeenPath(pathname);
     setOpen(false);
   }
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";

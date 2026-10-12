@@ -18,7 +18,7 @@ const groups: { key: "outfits" | "crew" | "deliverables" | "extras"; label: stri
 export default function Pricing() {
   return (
     <div className="mx-auto max-w-6xl px-4 md:px-6 py-12 md:py-20">
-      <h1 data-reveal className="display text-5xl md:text-7xl">Bảng giá</h1>
+      <h1 className="display text-5xl md:text-7xl">Bảng giá</h1>
       <p className="mt-4 max-w-lg text-ink-soft leading-7">
         Giá trọn gói, đã gồm trang phục, makeup, ekip và sản phẩm in. Ưu đãi mùa cưới
         chỉ áp dụng cho 30 cặp đôi đầu tiên mỗi gói.

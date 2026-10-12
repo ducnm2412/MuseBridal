@@ -77,7 +77,7 @@ export default function Services() {
     <div>
       {/* Đầu trang gọn */}
       <div className="mx-auto max-w-6xl px-4 md:px-6 pt-10 md:pt-16">
-        <h1 data-reveal className="display text-5xl md:text-7xl">Dịch vụ</h1>
+        <h1 className="display text-5xl md:text-7xl">Dịch vụ</h1>
         <p className="mt-3 max-w-md text-ink-soft leading-7">
           Muse làm trọn gói từ concept, trang phục, makeup đến album in. Hai bạn chỉ
           cần chọn phim trường hay ngoại cảnh.
