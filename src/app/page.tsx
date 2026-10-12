@@ -24,18 +24,27 @@ export default function Home() {
       {/* Hero kiểu tạp chí: nền kem, chữ bên trái, ảnh dọc bên phải kèm ảnh nhỏ chồng lệch */}
       <section className="pt-20 md:pt-24 pb-8 md:pb-6 overflow-hidden md:h-[100svh] md:min-h-[640px]">
         <div className="mx-auto max-w-6xl px-4 md:px-6 h-full grid gap-6 md:gap-10 md:grid-cols-[1fr_1fr] md:gap-12 items-center">
-          <div className="hero-in order-2 md:order-1">
-            <p className="hidden md:block text-sm text-ink-soft">
+          <div className="order-2 md:order-1">
+            <p className="hero-step hidden md:block text-sm text-ink-soft" style={{ "--i": 0 } as React.CSSProperties}>
               Studio ảnh cưới tại Sài Gòn
             </p>
+            {/* Tiêu đề hiện từng chữ, mỗi chữ trễ hơn chữ trước 60ms */}
             <h1 className="display text-[clamp(1.6rem,8.4vw,2.4rem)] leading-[1.08] sm:text-6xl md:text-[clamp(3.4rem,9.5vh,7rem)] mt-3 whitespace-nowrap sm:whitespace-normal">
-              Ảnh cưới của hai bạn,
+              {"Ảnh cưới của hai bạn,".split(" ").map((w, i) => (
+                <span key={i} className="hero-word" style={{ "--i": i } as React.CSSProperties}>
+                  {w}{" "}
+                </span>
+              ))}
               <br />
               <span className="display-italic text-brown">
-                kể theo cách của Muse.
+                {"kể theo cách của Muse.".split(" ").map((w, i) => (
+                  <span key={i} className="hero-word" style={{ "--i": i + 5 } as React.CSSProperties}>
+                    {w}{" "}
+                  </span>
+                ))}
               </span>
             </h1>
-            <p className="hero-in-late mt-4 md:mt-[clamp(0.75rem,2vh,1.5rem)] max-w-lg text-base md:text-lg leading-7 md:leading-8 text-ink-soft">
+            <p className="hero-step mt-4 md:mt-[clamp(0.75rem,2vh,1.5rem)] max-w-lg text-base md:text-lg leading-7 md:leading-8 text-ink-soft">
               <span className="md:hidden">
                 Phim trường hoặc ngoại cảnh Sài Gòn, trọn gói từ váy đến album.
               </span>
@@ -44,7 +53,7 @@ export default function Home() {
                 veston, makeup và album in. Ekip ba người đi cùng cả buổi.
               </span>
             </p>
-            <div className="hero-in-late mt-6 md:mt-[clamp(1rem,2.5vh,2rem)] flex flex-wrap gap-3">
+            <div className="hero-step mt-6 md:mt-[clamp(1rem,2.5vh,2rem)] flex flex-wrap gap-3" style={{ "--i": 12 } as React.CSSProperties}>
               <Link href="/lien-he#dat-lich" className="btn btn-primary">
                 Đặt lịch chụp
               </Link>
@@ -52,14 +61,14 @@ export default function Home() {
                 Xem album
               </Link>
             </div>
-            <ul className="hero-in-late hidden md:flex mt-8 md:mt-[clamp(1rem,3vh,2.5rem)] [@media(max-height:720px)]:md:hidden flex-wrap gap-x-8 gap-y-2 text-sm text-ink-soft">
+            <ul style={{ "--i": 14 } as React.CSSProperties} className="hero-step hidden md:flex mt-8 md:mt-[clamp(1rem,3vh,2.5rem)] [@media(max-height:720px)]:md:hidden flex-wrap gap-x-8 gap-y-2 text-sm text-ink-soft">
               <li>Phim trường riêng</li>
               <li>Ngoại cảnh toàn Sài Gòn</li>
               <li>Photographer, Makeup Artist, Stylist</li>
             </ul>
           </div>
 
-          <div className="relative hero-in-late w-full order-1 md:order-2 md:h-[calc(100svh-7.5rem)] md:min-h-[520px]">
+          <div className="relative hero-media w-full order-1 md:order-2 md:h-[calc(100svh-7.5rem)] md:min-h-[520px]">
             <HeroSlides
               photos={heroPhotos}
               className="aspect-[4/5] md:aspect-auto md:h-full md:w-full"

@@ -77,7 +77,7 @@ export default function HeroSlides({
           type="button"
           onClick={() => setIdx(nextIdx)}
           aria-label={`Xem ảnh kế tiếp: ${photos[nextIdx].alt}`}
-          className="absolute left-3 md:-left-14 bottom-6 md:bottom-10 w-[38%] md:w-[34%] aspect-[3/4] overflow-hidden bg-beige border-[6px] border-cream shadow-[0_18px_40px_rgba(43,33,28,0.2)] transition-transform duration-500 hover:scale-[1.03]"
+          className="hero-thumb absolute left-3 md:-left-14 bottom-6 md:bottom-10 w-[38%] md:w-[34%] aspect-[3/4] overflow-hidden bg-beige border-[6px] border-cream shadow-[0_18px_40px_rgba(43,33,28,0.2)]"
         >
           {photos.map((ph, i) => (
             <Image
