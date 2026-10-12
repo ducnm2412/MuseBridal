@@ -6,7 +6,8 @@ import HeroSlides from "@/components/HeroSlides";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import MomentsMosaic from "@/components/MomentsMosaic";
 import Testimonials from "@/components/Testimonials";
-import { albums, moments, packages, site, steps } from "@/lib/data";
+import EditorialGrid from "@/components/EditorialGrid";
+import { albums, moments, packages, picks, site, steps } from "@/lib/data";
 
 export default function Home() {
   // Ưu tiên ảnh 2048px để không bị mờ trên màn hình rộng
@@ -149,11 +150,6 @@ export default function Home() {
       {/* Dịch vụ: danh sách chọn, ảnh lớn đổi theo mục */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="max-w-2xl mb-10 md:mb-14">
-            <h2 className="display text-4xl md:text-6xl">
-              Muse làm gì cho ngày chụp
-            </h2>
-          </div>
           <ServicesShowcase />
         </div>
       </section>
@@ -206,6 +202,19 @@ export default function Home() {
               kiện và hoa cầm tay tặng kèm.
             </p>
           </Link>
+        </div>
+      </section>
+
+      {/* Lưới ảnh tạp chí: những khung hình cắt từ các album */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <div className="mb-10 md:mb-14 flex flex-wrap items-end justify-between gap-4">
+            <h2 className="display text-4xl md:text-6xl">Nhìn gần hơn</h2>
+            <Link href="/album" className="underline underline-offset-4 hover:text-brown">
+              Xem tất cả album
+            </Link>
+          </div>
+          <EditorialGrid photos={picks} />
         </div>
       </section>
 

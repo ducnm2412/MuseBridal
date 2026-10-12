@@ -55,6 +55,9 @@ export const albums: Album[] = [
       p("serene-love-2", 1365, 2048, "Cô dâu nhắm mắt tựa vào chú rể, voan phủ nhẹ"),
       p("serene-love-1", 1365, 2048, "Cô dâu ngồi giữa bãi hoa đỏ, chú rể đứng phía sau"),
       p("serene-love-3", 1365, 2048, "Toàn cảnh cặp đôi giữa vườn cây"),
+      p("serene-love-7", 1800, 1060, "Cặp đôi nắm tay giữa bãi hoa đỏ trong rừng"),
+      p("serene-love-5", 1365, 901, "Đuôi váy và voan trải dài trên cỏ"),
+      p("serene-love-6", 1365, 778, "Cô dâu dưới lớp voan giữa tán cây"),
       p("serene-love-4", 1365, 2048, "Bộ ba khung hình Serene Love"),
     ],
   },
@@ -100,6 +103,7 @@ export const albums: Album[] = [
     photos: [
       p("our-journey-1", 1365, 2048, "Cô dâu quay lại nhìn, chú rể quay lưng"),
       p("our-journey-2", 2048, 2048, "Chú rể ôm cô dâu từ phía sau giữa rừng thông"),
+      p("our-journey-4", 1024, 1843, "Chú rể veston trắng ôm cô dâu cầm hoa"),
       p("our-journey-3", 1200, 1500, "Trang album Our Journey"),
     ],
   },
@@ -130,6 +134,8 @@ export const albums: Album[] = [
     photos: [
       p("giai-duyen-2", 2048, 2045, "Cô dâu áo dài trắng trên nền đỏ"),
       p("giai-duyen-3", 2043, 2048, "Cô dâu áo dài trắng, phông hồng nhạt"),
+      p("giai-duyen-5", 1185, 1946, "Cô dâu áo dài trắng, tóc búi, nền đỏ"),
+      p("giai-duyen-6", 2000, 1160, "Cặp đôi áo dài ngồi ghế gỗ bên bình hoa"),
       p("giai-duyen-4", 2048, 2048, "Trang album Giai Duyên"),
     ],
   },
@@ -147,7 +153,29 @@ export const albums: Album[] = [
       p("power-of-love-5", 2000, 2000, "Cặp đôi trước toà nhà cổ, cầm tạp chí"),
       p("power-of-love-3", 1638, 2048, "Trang album Power of Love"),
       p("power-of-love-2", 1638, 2048, "Cô dâu và chú rể trong hẻm phố"),
+      p("power-of-love-6", 1638, 901, "Cặp đôi tựa vai nhau, váy trắng và áo sọc"),
+      p("power-of-love-7", 1560, 1100, "Cặp đôi trên bậc thềm toà nhà cổ, cầm tạp chí"),
       p("power-of-love-4", 1638, 2048, "Trang album Power of Love, nền tối"),
+    ],
+  },
+  {
+    slug: "cong-vien",
+    title: "Công viên",
+    kind: "Ngoại cảnh",
+    place: "Công viên lớn, Sài Gòn",
+    summary: "Bãi cỏ rộng, ô giấy và veston đen giữa nắng sớm.",
+    story:
+      "Buổi chụp bắt đầu lúc bảy giờ sáng khi công viên còn vắng. Cô dâu đổi hai váy, một váy xoè và một váy suông, để có cả khung hình chạy nhảy lẫn khung hình đứng yên.",
+    cover: p("saigon-1", 880, 920, "Cặp đôi giơ voan trắng trên đầu giữa công viên"),
+    photos: [
+      p("saigon-1", 880, 920, "Cặp đôi giơ voan trắng trên đầu giữa công viên"),
+      p("saigon-5", 620, 940, "Chú rể cầm ô giấy che cho cô dâu"),
+      p("saigon-6", 620, 940, "Cặp đôi hôn nhau dưới lớp voan"),
+      p("saigon-2", 620, 940, "Cô dâu cầm ô giấy, chú rể đứng cạnh"),
+      p("saigon-7", 880, 920, "Chú rể nâng cằm cô dâu giữa bãi cỏ"),
+      p("saigon-3", 620, 940, "Cô dâu váy suông nhìn lại, chú rể phía sau"),
+      p("saigon-8", 620, 940, "Cô dâu nhắm mắt, chú rể hôn trán"),
+      p("saigon-4", 620, 940, "Cặp đôi nắm tay bước trên cỏ"),
     ],
   },
 ];
@@ -290,6 +318,24 @@ export const moments: Photo[] = [
   p("calla-4", 1365, 2048, "Những ly rượu chạm nhau trước cô dâu"),
   p("calla-3", 1365, 2048, "Cặp đôi đứng với hoa rum và rèm trắng"),
   p("studio-film-1", 2048, 2048, "Cặp đôi trong phim trường với hoa đỏ"),
+  p("saigon-2", 620, 940, "Cô dâu cầm ô giấy, chú rể đứng cạnh"),
+  p("giai-duyen-5", 1185, 1946, "Cô dâu áo dài trắng, tóc búi, nền đỏ"),
+  p("studio-film-5", 901, 2048, "Cô dâu cầm máy ảnh, chú rể nhảy phía sau"),
+  p("saigon-4", 620, 940, "Cặp đôi nắm tay bước trên cỏ"),
+  p("power-of-love-7", 1560, 1100, "Cặp đôi trên bậc thềm toà nhà cổ, cầm tạp chí"),
+  p("serene-love-6", 1365, 778, "Cô dâu dưới lớp voan giữa tán cây"),
+];
+
+/** Ảnh cho khối lưới tạp chí ở trang chủ: cắt từ các trang album, không có chữ. */
+export const picks: Photo[] = [
+  p("serene-love-7", 1800, 1060, "Cặp đôi nắm tay giữa bãi hoa đỏ trong rừng"),
+  p("studio-film-4", 1126, 1925, "Cặp đôi chụp ảnh nhau trên giường trắng"),
+  p("saigon-3", 620, 940, "Cô dâu váy suông nhìn lại, chú rể phía sau"),
+  p("power-of-love-7", 1560, 1100, "Cặp đôi trên bậc thềm toà nhà cổ, cầm tạp chí"),
+  p("our-journey-4", 1024, 1843, "Chú rể veston trắng ôm cô dâu cầm hoa"),
+  p("giai-duyen-6", 2000, 1160, "Cặp đôi áo dài ngồi ghế gỗ bên bình hoa"),
+  p("power-of-love-6", 1638, 901, "Cặp đôi tựa vai nhau, váy trắng và áo sọc"),
+  p("saigon-1", 880, 920, "Cặp đôi giơ voan trắng trên đầu giữa công viên"),
 ];
 
 export const testimonials = [
